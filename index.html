@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashwani Tayal - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            border-bottom: 3px solid #003f88; /* Darker blue for contrast */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            margin: 0;
+            color: #003f88;
+            font-weight: 700;
+        }
+        header p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+        .contact-info a {
+            color: #003f88;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        h2 {
+            border-bottom: 2px solid #003f88;
+            padding-bottom: 5px;
+            color: #003f88;
+            font-weight: 700;
+        }
+        .button, .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #003f88;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .button:hover, .download-button:hover {
+            background-color: #002f6c;
+        }
+        .collapse {
+            display: none;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .collapse.active {
+            display: block;
+        }
+        .collapse-toggle {
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .collapse-toggle:after {
+            content: " (Click to expand)";
+            font-weight: 400;
+            font-size: 14px;
+            color: #666;
+        }
+        .project-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .project-list li:before {
+            content: '\f058'; /* Checkmark icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #003f88;
+            margin-right: 10px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .button, .download-button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+
+        header {
+        background-color: #003f88; /* Dark blue background for header */
+        padding: 30px 20px; /* Increase padding for breathing room */
+        text-align: center;
+        border-radius: 8px 8px 0 0; /* Rounded corners at the top */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        color: white; /* White text for better contrast */
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2.5rem; /* Large, bold font for the name */
+        font-weight: 700;
+        letter-spacing: 2px; /* Adds spacing between letters */
+        text-transform: uppercase; /* Make the name uppercase */
+        color: white !important;
+    }
+
+    header p {
+        margin: 10px 0 0;
+        font-size: 1.2rem; /* Slightly larger font for title */
+        font-weight: 400;
+        text-transform: capitalize; /* Capitalize first letters */
+        letter-spacing: 1px; /* Slight letter spacing for clarity */
+        color: #f0f4f8; /* Light gray for subtitle to contrast with name */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        header h1 {
+            font-size: 2rem;
+        }
+        header p {
+            font-size: 1rem;
+        }
+    }
+     table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #003f88; /* Deep blue border */
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #002a5a; /* Darker blue for header */
+            color: #ffffff; /* White text */
+        }
+        tr:nth-child(even) {
+            background-color: #e0eaff; /* Light blue for even rows */
+        }
+        tr:nth-child(odd) {
+            background-color: #ffffff; /* White for odd rows */
+        }
+        tr:hover {
+            background-color: #c2d3f0; /* Slightly darker blue on hover */
+        }
+        h2 {
+            font-family: Arial, sans-serif;
+            color: #003f88; /* Deep blue for the heading */
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container" id="cv-container">
+        <header>
+            <h1>Ashwani Tayal</h1>
+            <p>AVP / Solution Architect / Software Engineer</p>
+        </header>
+
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:love2ashwani@gmail.com">love2ashwani@gmail.com</a>, <a href="mailto:ashwani.tayal1990@gmail.com">ashwani.tayal1990@gmail.com</a></p>
+            <p><strong>Phone:</strong> +91 98111 99110</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ashwanitayal/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ashwanitayal/</a></p>
+        </div>
+
+        <a href="ashwani_tayal_cv.pdf" class="download-button" target="_blank"><i class="fas fa-download"></i> Download CV</a>
+
+        <section>
+            <h2>Professional Summary</h2>
+            <p>An accomplished Software Engineer with over 12 years of experience in Web Application Development, specializing in PHP with Yii Framework, MySQL, CI, APIs, jQuery, JavaScript, NodeJS, Microservices, and AWS. A team-oriented player with strong interpersonal skills, self-motivated, and possessing extensive knowledge of the Software Development Life Cycle. Proven track record in delivering high-quality solutions and managing complex projects from concept to completion.</p>
+        </section>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <ul>
+                <li><strong>Languages:</strong> PHP with Yii, API development in PHP & NodeJS, MySQL & MongoDB</li>
+                <li><strong>Web Technologies & Servers:</strong> PHP, Yii Framework, CI Framework, HTML, CSS, JavaScript, jQuery</li>
+                <li><strong>Databases:</strong> MySQL, MongoDB, PostgreSQL</li>
+                <li><strong>Operating Systems:</strong> Windows, Linux Ubuntu</li>
+                <li><strong>Cloud:</strong> AWS, Azure</li>
+                <li><strong>Methodologies:</strong> Object-Oriented Programming (OOP), Database Management System (DBMS), Model View Controller (MVC)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <table>
+                <tr>
+                    <th>Degree</th>
+                    <th>Institution</th>
+                    <th>Year</th>
+                    <th>Percentage</th>
+                </tr>
+                <tr>
+                    <td>M.Tech in Computer Science and Engineering</td>
+                    <td>School of PG Engineering, Bahadurgarh (Maharshi Dayanand University), Rohtak</td>
+                    <td>2012-2014</td>
+                    <td>72.59%</td>
+                </tr>
+                <tr>
+                    <td>B.Tech in Information Technology</td>
+                    <td>Laxmi Devi Institute of Engineering and Technology, Alwar (Rajasthan Technical University)</td>
+                    <td>2007-2011</td>
+                    <td>74.24%</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Work Experience</h2>
+
+            <button class="button collapse-toggle" onclick="toggleCollapse('PPPL')"><i class="fas fa-cogs"></i> Primus Partners (Oct 2023 – Present)</button>
+            <div id="PPPL" class="collapse">
+                <p><strong>Employer:</strong> Primus Partners</p>
+                <p><strong>Role:</strong> Assistant Vice President</p>
+        
+                <h3>Tree Web Application</h3>
+                <p><strong>Details:</strong> Developed for the PWD department in Maharashtra, this application monitors tree plantation and growth. Built using PHP Yii2 and PostgreSQL, the application supports MIS components and features an analytics dashboard with geotagging of planted trees and their images.</p>
+                
+                <h3>PMIS (Project Management Information System)</h3>
+                <p><strong>Details:</strong> A web application designed for the Ministry of Health and Family Welfare (MoHFW) to monitor the progress of infrastructure and medical projects managed by various agencies. This application facilitates project planning and receives regular updates from ground staff, validated by respective agencies.</p>
+        
+                <h3>Alert Management System</h3>
+                <p><strong>Details:</strong> A web-based application that generates and escalates alerts to various government officials based on predefined conditions. The system includes a dashboard for analyzing responses to alerts and is integrated with the IIHP Platform.</p>
+        
+                <h3>LIMS (Laboratory Information Management System)</h3>
+                <p><strong>Details:</strong> A web-based application designed for various laboratories under the National Centre for Disease Control (NCDC). This system digitizes existing testing processes and facilitates the sharing of results with concerned officers. It is also integrated with the IIHP Platform.</p>
+        
+                <h3>POE (Port of Entry) Application</h3>
+                <p><strong>Details:</strong> A mobile-based application used for collecting questionnaire-based responses from field officers in airport areas for surveillance purposes. APIs are developed for integration with mobile applications, and the system is integrated with the IIHP Platform.</p>
+        
+                <p><strong>Responsibilities:</strong></p>
+                <ul>
+                    <li>Leading development efforts across various projects, ensuring alignment with client requirements and project goals.</li>
+                    <li>Managing and coordinating the development team to ensure timely and efficient delivery of project milestones.</li>
+                    <li>Architecting applications to meet performance, scalability, and security requirements.</li>
+                    <li>Overseeing seamless integration of applications with relevant platforms, ensuring interoperability and data consistency.</li>
+                </ul>
+            
+            </div>
+
+
+            <button class="button collapse-toggle" onclick="toggleCollapse('collapse13')"><i class="fas fa-cogs"></i> Critical River (June 2023 – October 2023)</button>
+            <div id="collapse13" class="collapse">
+                <p><strong>Employer:</strong> Critical River</p>
+                <p><strong>Client:</strong> Shapeways</p>
+                <p><strong>Role:</strong> Senior Software Engineer</p>
+                <p><strong>Short Description:</strong> During my tenure at Critical River, I was deeply involved in the development and maintenance of e-commerce web applications for Shapeways. My role included integrating these applications with platforms such as Etsy and Shopify to enhance their functionality and reach. My contributions played a key role in expanding Shapeways' online business presence and ensuring a seamless shopping experience for customers.</p>
+                <p><strong>Responsibilities:</strong> Development and maintenance of e-commerce web applications, integration with Etsy and Shopify, and contributing to the growth and expansion of online business presence.</p>
+            </div>
+            
+
+            <button class="button collapse-toggle" onclick="toggleCollapse('collapse12')"><i class="fas fa-cogs"></i> Tata Medical and Diagnostics Ltd (Jan 2022 – June 2023)</button>
+            <div id="collapse12" class="collapse">
+                <p><strong>Role:</strong> Senior Software Engineer</p>
+                <p><strong>Projects:</strong></p>
+                <div class="project-list">
+                    <ul>
+                        <li><strong>AMR (Antimicrobial Resistance Surveillance):</strong> Developed a web application for collecting lab test data from labs and hospitals through various methods including APIs, web applications, and Excel bulk uploads. The application created comprehensive analyses with multiple filters to aid experts in formulating treatment guidelines. Responsibilities included development, maintenance, and creation of analytics modules based on data from across PAN India.</li>
+                        <li><strong>Konnifel:</strong> Worked on a web application for internships where professors could post internships, and students could apply. Involved in multiple modules including exam management, recommendation systems, and payment gateway integration. As a team lead, managed development tasks, module development, and application architecture.</li>
+                    </ul>
+                </div>
+                <p><strong>Responsibilities:</strong> Led the development and maintenance of the AMR application, including creating the analytics module. Managed a team for the development of Konnifel, focusing on module development, application architecture, and ensuring smooth integration of various components.</p>
+            </div>
+
+
+            <button class="button collapse-toggle" onclick="toggleCollapse('collapse11')"><i class="fas fa-cogs"></i> Spice Works Ziff Davis (Aug 2021 – Jan 2022)</button>
+            <div id="collapse11" class="collapse">
+                <p><strong>Role:</strong> Software Engineer SE II</p>
+                <p><strong>Projects:</strong></p>
+                <div class="project-list">
+                    <ul>
+                        <li><strong>Launchpad:</strong> Developed a web application used for lead generation through the analysis of social media data. This project aimed at enhancing the company's marketing capabilities by leveraging social media insights. Responsibilities included full-stack development, ensuring the application's performance and reliability, and contributing to the overall lead generation strategy.</li>
+                        <li><strong>Casper Desktop Application:</strong> Maintained the Casper Desktop Application used for social verification. Ensured its smooth operation and integration with other systems to support the company's verification processes.</li>
+                    </ul>
+                </div>
+                <p><strong>Responsibilities:</strong> Involved in the full development lifecycle of the Launchpad web application, including design, development, and maintenance. Managed the Casper Desktop Application, ensuring its effectiveness in social verification and integration with related systems.</p>
+            </div>
+
+
+            <button class="button collapse-toggle" onclick="toggleCollapse('collapse10')"><i class="fas fa-cogs"></i> Velocis Systems Pvt Ltd (Nov 2020 – Aug 2021)</button>
+            <div id="collapse10" class="collapse">
+                <p><strong>Role:</strong> Senior Software Engineer</p>
+                <p><strong>Client:</strong> CISCO Systems</p>
+                <p><strong>Projects:</strong></p>
+                <div class="project-list">
+                    <ul>
+                        <li><strong>CNAAP (CISCO NETWORK AUTOMATION & ANALYTICS PLATFORM):</strong> Supported Reliance Jio in managing their network devices using CNAAP, a cutting-edge platform from CISCO. Responsibilities included development and maintenance of the platform, bug fixing, API development, and full-stack development of new modules. Played a crucial role in the upgrade to 5G network by generating Network Installation Packages (NIP) for network devices, which were instrumental in transitioning the network infrastructure to 5G technology. This project highlighted my technical proficiency and ability to deliver impactful solutions in complex network environments.</li>
+                    </ul>
+                </div>
+                <p><strong>Responsibilities:</strong> Involved in the full development lifecycle of CNAAP, including bug fixing, API development, and creating new modules. Contributed significantly to the upgrade process to 5G, including the generation of Network Installation Packages (NIP).</p>
+            </div>
+
+
+            <button class="button collapse-toggle" onclick="toggleCollapse('collapse9')"><i class="fas fa-cogs"></i> Digital India Corporation (Oct 2015 – Nov 2020)</button>
+            <div id="collapse9" class="collapse">
+                <p><strong>Role:</strong> Web Developer</p>
+                <p><strong>Projects:</strong></p>
+                <div class="project-list">
+                    <ul>
+                        <li><strong>IIDS (Interactive Information Discrimination System):</strong> Developed a push and pull model for agricultural advisory services. The platform provided area-based agro-advisory to farmers and was deployed in Andhra Pradesh, Telangana, and Northeastern states. It is now launched as Krishi Saarthi, implemented PAN India. Responsibilities included full-stack development of new modules, management of existing modules, and API development for integration with UMANG and Toll-Free Numbers. <a href="http://akps.in" target="_blank" rel="noopener noreferrer">Visit Andhra Pradesh & Telangana site</a>, <a href="http://1917iteams.in" target="_blank" rel="noopener noreferrer">Visit Meghalaya site</a>, <a href="http://m4agri.dic.gov.in" target="_blank" rel="noopener noreferrer">Visit Mizoram & Tripura site</a></li>
+                        <li><strong>QR3CMS (QR Coded Check Post Management System):</strong> A web and mobile-based solution for managing mineral transportation in Meghalaya. It facilitated efficient tracking and management, contributing to transparency and accountability in the mining sector. Responsibilities included full-stack development, management of new and existing modules, API development for mobile applications, and integration of Click2Call functionality using IVRS. <a href="https://icms.digitalindiacorporation.in/I2CMS" target="_blank" rel="noopener noreferrer">Visit QR3CMS</a></li>
+                        <li><strong>IPMP (Infra Project Management System):</strong> A web-based tool for monitoring the progress of infrastructure projects in Meghalaya, directly monitored by the Chief Minister. It provided real-time insights into project progress and performance. Responsibilities included full-stack development, management of existing modules, and API development for mobile applications. <a href="https://pms.digitalindiacorporation.in/PMS" target="_blank" rel="noopener noreferrer">Visit IPMP</a></li>
+                    </ul>
+                </div>
+                <p><strong>Environment:</strong> PHP with Yii, MySQL</p>
+                <p><strong>Tools:</strong> NetBeans, Mercurial, Bit Bucket, Vim editor, FileZilla</p>
+                <p><strong>Responsibilities:</strong> Spearheaded full-stack development for various projects, including API integration, module management, and stakeholder collaboration. Played a key role in the successful deployment and management of impactful technology solutions for societal benefit.</p>
+            </div>
+
+
+            <button class="button collapse-toggle" onclick="toggleCollapse('collapse7')"><i class="fas fa-cogs"></i> CDAC Delhi (Sep 2013 – Oct 2015)</button>
+            <div id="collapse7" class="collapse">
+                <p><strong>Role:</strong> Software Engineer</p>
+                <p><strong>Projects:</strong></p>
+                <div class="project-list">
+                    <ul>
+                        <li><strong>CeG Web Portal:</strong> Developed a web application to demonstrate e-Governance services and applications to Indian citizens. The portal includes a discussion forum, visit request management, feedback collection, conference registration, and a backend admin module. Managed full-stack development, hosting, security clearance, and other aspects of web development. <a href="http://www.ceg.meity.gov.in" target="_blank" rel="noopener noreferrer">Visit the site</a></li>
+                        <li><strong>Online Quiz:</strong> Created a web application for conducting online quizzes at the Centre for e-Governance (CeG). The application includes features for quiz management, such as adding, deleting, and editing questions, collecting feedback, and displaying results in the admin panel.</li>
+                    </ul>
+                </div>
+                <p><strong>Environment:</strong> PHP with Yii, MySQL</p>
+                <p><strong>Tools:</strong> NetBeans, Mercurial, Bit Bucket, Vim editor, FileZilla</p>
+                <p><strong>Responsibilities:</strong> Handled full-stack development of the CeG portal and the online quiz application, including administrative functionalities, security, and hosting.</p>
+            </div>
+
+
+            <button class="button collapse-toggle" onclick="toggleCollapse('collapse8')"><i class="fas fa-cogs"></i> Stratbeans Consulting (Jul 2013 – Sep 2013)</button>
+            <div id="collapse8" class="collapse">
+                <p><strong>Role:</strong> Software Engineer</p>
+                <p><strong>Projects:</strong></p>
+                <div class="project-list">
+                    <ul>
+                        <li><strong>ATP (Autumn Test Pad):</strong> Developed a web application used for training employees and evaluating their performance. The application supports various roles such as Manager, Administrator, and User. It includes features for managing tests and tracking performance metrics.</li>
+                        <li><strong>Vomozo:</strong> Worked on the development of a web application designed to assist CAT aspirants with their preparation. The application provides various resources and tools to help users in their preparation process.</li>
+                    </ul>
+                </div>
+                <p><strong>Environment:</strong> PHP with Yii, MySQL</p>
+                <p><strong>Tools:</strong> NetBeans, Mercurial, Bit Bucket, Vim editor, FileZilla</p>
+                <p><strong>Responsibilities:</strong> Addressed new tickets and handled tasks related to enhancing the current application, including both new development and modifications to existing functionalities.</p>
+            </div>
+
+
+            <button class="button collapse-toggle" onclick="toggleCollapse('iit')"><i class="fas fa-cogs"></i> I.I.T. Bombay (Jan 2012 – Nov 2012)</button>
+                <div id="iit" class="collapse">
+                    <p><strong>Role:</strong> Jr. Software Engineer</p>
+                    <p><strong>Projects:</strong></p>
+                    <div class="project-list">
+                        <ul>
+                            <li><strong>Automatic Seat Allotment Module:</strong> Developed a module for automatic seat allotment in workshops for IIT Bombay. The module automatically assigns participants to their preferred remote centers based on availability on a first-come, first-served basis. This system was used to manage the allocation of seats across 180 remote centers in India.</li>
+                            <li><strong>Empowerment for Students:</strong> Worked on the National Mission project aimed at empowering students through synchronous and asynchronous instructions. Involved in validating JSP pages using JavaScript and Java, ensuring robust connectivity with PostgreSQL databases, and maintaining regular database updates.</li>
+                        </ul>
+                    </div>
+                    <p><strong>Environment:</strong> Linux, JavaScript, PostgreSQL, Java</p>
+                    <p><strong>Achievements:</strong> Contributed significantly to the efficient management of workshop registrations and seat allotments, improving the overall experience for participants and administrators.</p>
+                </div>
+
+        </section>
+
+    </div>
+
+    <script>
+        function toggleCollapse(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
